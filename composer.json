@@ -1,0 +1,8 @@
+{
+    "name": "zine/common",
+    "description": "some private class files",
+    "type": "library",
+    "license": "MIT",
+    "minimum-stability": "dev",
+    "require": {}
+}
