@@ -66,4 +66,28 @@ class Tree
     }
 
 
+    /**
+     * 将rows转换成tree结构 
+     * @param  object  $array  数据
+     * @param  integer $pid   父id
+     * @param  integer $lev   level
+     * @return array         返回一个array
+     */
+    public static function initDataObject($array, $pid = 0, $lev=0){
+        $arr = array();
+        $tem = array();
+        foreach ($array as $v) {
+
+            if ($v->pid == $pid) {
+                $tem = self::initDataObject($array, $v->id, $lev+1);
+                //tree level
+                $v->level = $lev;
+                //tree children
+                $v->children = $tem;
+                $arr[] = $v;
+            }
+        }
+        return $arr;
+    }
+
 }
